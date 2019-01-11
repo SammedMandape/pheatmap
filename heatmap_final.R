@@ -2,12 +2,15 @@
 ## Author: Sammed N. Mandape 
 ## This R code is to generate heatmap for expression values, specifically this code plots a heatmap for FPKM values.
 ## Scaling was done using zFPKM library. 
+## FYI: Codes are commented by '###', if you want to run this line. 
 #########
 
 ## Read data
 data_input <- read.delim('Genes.csv', header = T, row.names = "Genes", sep=",")
 
 # scaling data specific for FPKM values using zFPKM library, install zFPKM library if needed.
+### BiocManager::install("zFPKM", version = "3.8")
+library('zFPKM')
 data_subset <- zFPKM(data_input[,1:4])
 
 # convert to matrix
